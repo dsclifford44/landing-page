@@ -38,22 +38,35 @@
  * 
 */
 
-// build the nav
+/ build the nav, dynamic nav menu that builds additional list items as added to HTML
 const navBar = document.querySelector('#navbar__list');
-const sections =['section1', 'section2', 'section3', 'section4'];
-for(const section of sections){
-
-    const listItem = document.createElement('li');
-    const listItemLink = document.createElement('a');
-
-    listItem.textContent = section;
-    navbar__list.appendChild(listItem);
-    listItem.appendChild(listItemLink);
-    
-    
+const sections = document.getElementsByTagName('section');
+for(section of sections) {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="#${section.id}" class="menu__link ${section.id}" >${section.dataset.nav}</a>`;
+    navBar.appendChild(li);  
 }
 
 
+
+// Add class 'active' to section when near top of viewport
+function makeActive(){
+    for (section of sections) {
+        const container = section.getBoundingClientRect();
+        if (container.top<= 150 && container.bottom >=150) {
+          section.classList.add("your-active-class");
+        }else{
+            section.classList.remove("your-active-class");
+        }
+        
+    }
+}
+document.addEventListener("scroll", function(){
+    makeActive();
+});
+
+
+documnet.querySelectorAll("section");
 // Add class 'active' to section when near top of viewport
 
 
