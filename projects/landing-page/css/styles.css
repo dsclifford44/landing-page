@@ -17,7 +17,7 @@ body {
     font-family: 'Merriweather', serif;
     color: #fff;
 }
-
+html {scroll-behavior: smooth;}
 
 /* Typeography General*/
 h1 {
@@ -80,18 +80,24 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: rgb(0, 0, 0);
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
+    background: rgb(255,255,255);
+    color: rgb(2, 2, 2);
+    transition: ease 0.3s all;
+}
+
+.navbar__menu .menu__link:active {
+    background: rgb(255,255,255);
+    color: rgb(2, 2, 2);
     transition: ease 0.3s all;
 }
 
 /* Header Styles */
 .page__header {
-    background: rgb(247, 3, 3);
+    background: rgba(255, 255, 255, 0.187);
     position: fixed;
     top: 0;
     width: 100%;
@@ -196,6 +202,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
     background: rgb(0, 0, 0);
+    font-style: italic;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
